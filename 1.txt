@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Введите массив вещественных чисел построчно, после последнего числа введите quit, обозначив конец ввода");
+
+        String inp = "";
+
+        String ans = "";
+
+        double curr;
+        double sum = 0;
+        int count = 0;
+
+
+        while(! inp.equals("quit")){
+            inp = scan.nextLine();
+            if(inp.equals("quit")){
+                break;
+            }
+            else{
+                curr = Double.parseDouble(inp);
+                sum += curr;
+                count += 1;
+
+                ans += ((double) sum / count) + " ";
+
+            }
+        }
+    System.out.println(ans);
+
+
+    }
+}

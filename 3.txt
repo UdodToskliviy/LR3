@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Введите массив вещественных чисел построчно, после последнего числа введите quit, обозначив конец ввода");
+
+        String inp = "";
+
+        String ans = "";
+        int check = 0;
+
+        double curr, prev = 0;
+
+
+        while(! inp.equals("quit")){
+            inp = scan.nextLine();
+            if(inp.equals("quit")){
+                break;
+            }
+            else{
+                curr = Double.parseDouble(inp);
+                if(check == 0){
+                    ans += curr + " ";
+                    prev = curr;
+                    check = 1;
+                }
+                if(curr > prev){
+                    ans += curr + " ";
+                    prev = curr;
+                }
+
+            }
+        }
+    System.out.println(ans);
+
+
+    }
+}

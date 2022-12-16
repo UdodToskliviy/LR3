@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+
+        int check = 0;
+        String inp = "";
+        System.out.println("Введите число, которое хотите исключить из массива");
+        double delete;
+        inp = scan.nextLine();
+        delete = Double.parseDouble(inp);
+        if(delete % 1 != 0){
+            check = 1;
+            System.out.println("Ошибка. Число к удалению должно быть целым");
+        }
+        if (check == 0) {
+            System.out.println("Введите массив целых чисел построчно, после последнего числа введите quit, обозначив конец ввода");
+
+
+            String ans = "";
+            double errordef;
+
+            int curr;
+
+            while (!inp.equals("quit")) {
+                inp = scan.nextLine();
+                if (inp.equals("quit")) {
+                    break;
+                } else {
+                    errordef = Double.parseDouble(inp);
+                    if(errordef % 1 != 0){
+                        check = 1;
+                        System.out.println("Ошибка. Числа в массиве должны быть целыми");
+                        break;
+                    }
+                    curr = Integer.parseInt(inp);
+                    if (curr != delete) {
+                        ans += curr + " ";
+                    }
+
+                }
+            }
+            if(check == 0) {
+                System.out.println(ans);
+            }
+        }
+    }
+}
